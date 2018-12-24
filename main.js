@@ -1,4 +1,4 @@
-import SimpleState from './WorldState/SimpleState'
+import SimpleState from './worldState/SimpleState'
 
 let world = new SimpleState(5)
 
