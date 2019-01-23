@@ -29,7 +29,7 @@ export class Action {
 
     /**
      * Registers a blocking condition
-     * @param condition 
+     * @param condition
      */
     setCondition(condition: BlockingCondition) {
         this.blockingCondition = condition
@@ -38,8 +38,8 @@ export class Action {
     /**
      * Adds a score function.
      * The score will be added to the total score for this action
-     * @param description 
-     * @param calculationFunction 
+     * @param description
+     * @param calculationFunction
      */
     addScoreFunction(description: string, calculationFunction: ScoreCalculation) {
         this.scores.push({ description, calculationFunction })
@@ -64,9 +64,9 @@ export class Action {
 
     /**
      * Evaluate all Scores and returns total Action score
-     * @param worldState 
-     * @param agent 
-     * @param debug 
+     * @param worldState
+     * @param agent
+     * @param debug
      */
     evaluate(worldState: State, agent: Agent, debug: boolean = false): number {
         this.prt_debug = debug
