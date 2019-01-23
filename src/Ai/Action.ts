@@ -1,9 +1,9 @@
 import { State } from '../State'
 import { Agent } from '../Agent'
 
-export type BlockingCondition = (wState: State, agent: Agent) => boolean
-export type ScoreCalculation = (wState: State, agent: Agent) => number
-export type ActionFunction = (wState: State, agent: Agent) => void
+type BlockingCondition = (wState: State, agent: Agent) => boolean
+type ScoreCalculation = (wState: State, agent: Agent) => number
+type ActionFunction = (wState: State, agent: Agent) => void
 export type ActionCallback = (action: Action) => void
 
 export class Action {
@@ -13,6 +13,11 @@ export class Action {
     private actionFunction: ActionFunction
     private prt_debug: boolean = false
 
+    /**
+     * Action
+     * @param description Actions textual description
+     * @param action
+     */
     constructor(public description: string, action: ActionCallback) {
         this.description = description
         this.scores = []
@@ -22,14 +27,28 @@ export class Action {
         action(this)
     }
 
+    /**
+     * Registers a blocking condition
+     * @param condition 
+     */
     setCondition(condition: BlockingCondition) {
         this.blockingCondition = condition
     }
 
+    /**
+     * Adds a score function.
+     * The score will be added to the total score for this action
+     * @param description 
+     * @param calculationFunction 
+     */
     addScoreFunction(description: string, calculationFunction: ScoreCalculation) {
         this.scores.push({ description, calculationFunction })
     }
 
+    /**
+     * Registers the Action function (the consequence of this Action)
+     * @param action Action function
+     */
     setAction(action: ActionFunction) {
         this.actionFunction = action
     }
@@ -43,6 +62,12 @@ export class Action {
         console.log(...msg)
     }
 
+    /**
+     * Evaluate all Scores and returns total Action score
+     * @param worldState 
+     * @param agent 
+     * @param debug 
+     */
     evaluate(worldState: State, agent: Agent, debug: boolean = false): number {
         this.prt_debug = debug
 
@@ -66,6 +91,9 @@ export class Action {
         return score
     }
 
+    /**
+     * Action Execution function
+     */
     get do() {
         return this.actionFunction
     }
