@@ -1,3 +1,5 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/gmfc/u-ai/badge)](https://www.codefactor.io/repository/github/gmfc/u-ai)
+
 # u-Ai
 World state aware, simple Utility AI framework
 
