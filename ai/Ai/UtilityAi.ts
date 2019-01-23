@@ -2,6 +2,8 @@ import Action from './Action'
 import State from '../../worldState/State'
 import Agent from '../../agents/Agent'
 
+type ActionCallback = (action:Action) => void
+
 export default class UtilityAi {
 
     private _actions: Action[]
@@ -10,7 +12,7 @@ export default class UtilityAi {
         this._actions = []
     }
 
-    addAction(description: string, callback: Function) {
+    addAction(description: string, callback: ActionCallback) {
         if (!description) {
             throw Error("Missing description")
         }
