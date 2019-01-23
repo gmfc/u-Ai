@@ -18,7 +18,7 @@ export class SimpleAi extends Ai {
         this.addAction('Flee', (action: Action) => {
 
             // pre-condition, if not fulfilled action will be skipped
-            action.setCondition((wState: State, agent: SimpleAgent) => { return !agent.isBlocked })
+            action.setCondition((wState: State, agent: SimpleAgent) => !agent.isBlocked )
 
             // the higher the score better the action will be weighted
             action.addScoreFunction('Distance to monster', (wState: State, agent: SimpleAgent) => {

@@ -25,9 +25,7 @@ export class SimpleState extends State {
     /**
      * Function called to run the simulation (a tick)
      */
-    simulate(): void {        
-        for (const id in this.agents) {
-            this.agents[id].simulate(this)
-        }
+    simulate(): void {
+        this.agents.forEach(agent => agent.simulate(this))
     }
 }
