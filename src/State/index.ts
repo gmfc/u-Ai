@@ -1,6 +1,6 @@
-import Agent from "../../agents/Agent";
+import { Agent } from '../Agent';
 
-export default class State {
+export class State {
 
     agents: Agent[]
 

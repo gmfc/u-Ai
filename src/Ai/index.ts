@@ -1,0 +1,20 @@
+import { UtilityAi } from './UtilityAi'
+import { Agent } from '../Agent'
+import { State } from '../State'
+import { ActionCallback } from './Action'
+
+export class Ai {
+    ai: UtilityAi
+    debug:boolean = false
+    constructor(public agent: Agent) {
+        this.ai = new UtilityAi()
+    }
+
+    addAction(description: string, callback: ActionCallback) {
+        this.ai.addAction(description, callback)
+    }
+
+    evaluate(wState: State, agent: Agent) {
+        this.ai.evaluate(wState, agent, this.debug).do(wState, agent)
+    }
+}

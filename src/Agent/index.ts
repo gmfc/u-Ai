@@ -1,7 +1,7 @@
-import Ai from "../../ai/Ai";
-import State from "../../worldState/State";
+import { Ai } from '../Ai'
+import { State } from '../State'
 
-export default class Agent {
+export class Agent {
 
     ai: Ai
 
@@ -18,9 +18,6 @@ export default class Agent {
     }
 
     simulate(wState: State) {
-        if (!this.ai) {
-            throw Error("Missing AI definition")
-        }
         this.tick()
         this.ai.evaluate(wState, this)
     }

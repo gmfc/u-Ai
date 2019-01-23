@@ -1,10 +1,9 @@
-import Action from './Action'
-import State from '../../worldState/State'
-import Agent from '../../agents/Agent'
+import { Action } from './Action'
+import { State } from '../State'
+import { Agent } from '../Agent'
+import { ActionCallback } from './Action'
 
-type ActionCallback = (action:Action) => void
-
-export default class UtilityAi {
+export class UtilityAi {
 
     private _actions: Action[]
 
@@ -13,13 +12,6 @@ export default class UtilityAi {
     }
 
     addAction(description: string, callback: ActionCallback) {
-        if (!description) {
-            throw Error("Missing description")
-        }
-        if (!callback) {
-            throw Error("Missing callback")
-        }
-
         this._actions.push(new Action(description, callback))
     }
 
