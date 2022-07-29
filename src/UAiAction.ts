@@ -24,7 +24,7 @@ class UAiAction<state> {
     this._description = action.description
   }
 
-  private score(state: state, debug: boolean): number {
+  private _score(state: state, debug: boolean): number {
     const scr = this._scores.map(s => s(state)).reduce((a, b) => a + b)
     if (debug) console.log(`score of ${this._description} = ${scr}`);
     return scr
@@ -32,7 +32,7 @@ class UAiAction<state> {
 
   evaluate(state: state, debug: boolean = false): string {
     const str = this._actions ?
-      this._actions.reduce((a, b) => a.score(state, debug) > b.score(state, debug) ? a : b).evaluate(state, debug) :
+      this._actions.reduce((a, b) => a._score(state, debug) > b._score(state, debug) ? a : b).evaluate(state, debug) :
       this._command!
     if (debug) console.log(`eval result of ${this._description} is ${str}`);
     return str

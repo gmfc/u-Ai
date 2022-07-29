@@ -14,7 +14,7 @@ declare class UAiAction<state> {
     private _actions?;
     private _scores;
     constructor(action: NodeAct<state> | Act<state>);
-    private score;
+    private _score;
     evaluate(state: state, debug?: boolean): string;
 }
 export = UAiAction;
