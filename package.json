@@ -2,8 +2,9 @@
   "name": "aisandbox",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./lib/",
   "scripts": {
+    "build": "tsc --build",
     "test": "mocha --require ts-node/register test/**_test.ts --exit --timeout 15000",
     "test:coverage": "nyc yarn test"
   },
