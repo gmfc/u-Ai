@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "outDir": "lib",
+      "target": "es6",
+      "module": "CommonJS",
+      "moduleResolution": "node",
+      "strict": true,
+      "declarationMap": true,
+      "declaration": true
+      // "allowJs": true,
+      // "strictNullChecks": false,
+      // "esModuleInterop": true,
+      // "experimentalDecorators": true,
+      // "skipLibCheck": true,
+      // "forceConsistentCasingInFileNames": true
+    },
+    "include": [
+      "src"
+    ]
+  }
+  
